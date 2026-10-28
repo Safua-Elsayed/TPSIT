@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <input type="text" id="primo">
+
+    <br><br>
+
+    <button onclick="converti()">Converti in binario</button>
+
+    <p id="risultato"></p>
+    <script>
+     function converti(){
+     const risultato = [0,0,0,0,0,0,0,0];
+     let i = 7;
+    N = parseInt(document.getElementById("primo").value);
+    while (N > 0) {
+        risultato[i] = N % 2;
+        N = parseInt(N / 2);
+        i--;
+    }
+    document.getElementById("risultato").innerHTML = risultato;
+}
+</script>
+</body>
+</html>

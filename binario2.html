@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <input type="text" id="primo">
+
+    <br><br>
+
+    <button onclick="converti()">Converti in binario</button>
+
+    <p id="risultato"></p>
+    <script>
+     function converti(){
+     let risultato = "";
+     let i = 8;
+    N = parseInt(document.getElementById("primo").value);
+    if (N < 0 || N > 255) 
+        alert("Inserisci un numero tra 0 e 255");
+        else {
+
+    
+    while (N > 0) {
+        risultato = (N % 2) + risultato;
+        N = parseInt(N / 2);
+        i--;
+    }
+    for (j = 0; j < i; j++) {
+        risultato = "0" + risultato;
+    }
+    document.getElementById("risultato").innerHTML = risultato;
+}
+     }
+</script>
+</body>
+</html>
