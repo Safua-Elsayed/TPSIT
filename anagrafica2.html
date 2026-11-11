@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <body>
@@ -16,8 +15,10 @@
     <input type="radio" name="sesso" value="Femmina"> Femmina
     <br><br>
 
-    Indirizzo: <input type="text" id="indirizzo"><br><br>
-    Città: <input type="text" id="citta"><br><br>
+    Indirizzo: <input type="text" id="indirizzo">
+    <br><br>
+    Città: <input type="text" id="citta">
+    <br><br>
 
     Provincia:
     <select id="provincia">
@@ -52,18 +53,27 @@ document.getElementById("modulo").onsubmit = function(event) {
     let nome = document.getElementById("nome").value;
     let cognome = document.getElementById("cognome").value;
     let eta = document.getElementById("eta").value;
-    let sesso = document.querySelector('input[name="sesso"]:checked').value;
     let indirizzo = document.getElementById("indirizzo").value;
     let citta = document.getElementById("citta").value;
     let provincia = document.getElementById("provincia").value;
     let commenti = document.getElementById("commenti").value;
 
-    let sport = document.querySelectorAll('input[name="sport"]:checked');
-    let elenco = "";
+    let opzioniSesso = document.getElementsByName("sesso");
+    let sesso = "";
+    for (let opzione of opzioniSesso) {
+        if (opzione.checked) {
+            sesso = opzione.value;
+            break;
+        }
+    }
 
-    sport.forEach(function(s) {
-        elenco += s.value + " ";
-    });
+    let elementiSport = document.getElementsByName("sport");
+    let elenco = "";
+    for (let s of elementiSport) {
+        if (s.checked) {
+            elenco += s.value + " ";
+        }
+    }
 
     let tabella = "<table border='1'>" +
         "<tr><th>Campo</th><th>Valore</th></tr>" +
