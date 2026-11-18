@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Binario a Esadecimale</title>
+</head>
+<body>
+
+    <h2>Conversione da binario a esadecimale</h2>
+
+    <label>Inserisci una stringa binaria:</label>
+    <input type="text" id="binario">
+
+    <button onclick="converti()">Converti</button>
+
+    <p id="risultato"></p>
+
+    <script>
+        function converti() {
+            let binario = document.getElementById("binario").value;
+
+            let risultato = "";
+
+            if (binario == "" || /[^01]/.test(binario)) {
+                document.getElementById("risultato").innerHTML = "Inserisci solo 0 e 1";
+            }
+            else {
+                while (binario.length % 4 != 0) {
+                    binario = "0" + binario;
+                }
+
+                for (let i = 0; i < binario.length; i += 4) {
+                    let gruppo = binario.substring(i, i + 4);
+
+                    let decimale = parseInt(gruppo, 2);
+
+                    risultato = risultato + decimale.toString(16).toUpperCase();
+                }
+
+                document.getElementById("risultato").innerHTML = "Esadecimale: " + risultato;
+            }
+        }
+    </script>
+
+</body>
+</html>
